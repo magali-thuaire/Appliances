@@ -10,13 +10,21 @@ export class AppComponent {
 	// Authentification de l'utilisateur
 	isAuth = false;
 
-	// Liste des appareils
-	applianceOne = 'Machine à laver';
-	applianceTwo = 'Ordinateur';
-	applianceThree = 'Télévision';
-
-	// Statut des appareils
-	status = 'éteint';
+	// Tableau des appareils
+	appliances = [
+		{
+			name: 'Machine à laver',
+			status: 'éteint'
+		},
+		{
+			name: 'Ordinateur',
+			status: 'allumé'
+		},
+		{
+			name: 'Télévision',
+			status: 'éteint'
+		}
+	];
 
 	constructor() {
 		// Fonction qui permet de simuler l'authentification de l'utilisateur après 4s
@@ -24,12 +32,12 @@ export class AppComponent {
 			() => {
 				this.isAuth = true;
 			},
-		4000);
+			4000);
 	}
 
 	// Fonction qui modifie le statut des appareils sur 'allumé'
 	onTurningOn() {
-		this.status = 'allumé';
+		console.log('on allume tout');
 	}
 
 }
