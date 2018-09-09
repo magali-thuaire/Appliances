@@ -1,1 +1,4 @@
-<li class="list-group-item">Appareil : {{ appliance }} -- Statut : {{ getStatus() }}</li>
+<li class="list-group-item">
+	<p>Appareil : {{ appliance }} -- Statut : {{ getStatus() }}</p>
+	<input type="text" class="form-control" [(ngModel)]="appliance">
+</li>
