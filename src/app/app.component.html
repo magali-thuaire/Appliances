@@ -4,9 +4,9 @@
 			<div class="col-12">
 				<h1>Mes appareils</h1>
 				<ul class="list-group">
-					<li class="list-group-item">Appareil : {{ applianceOne }} -- Statut : {{ getStatus() }}</li>
-					<li class="list-group-item">Appareil : {{ applianceTwo }} -- Statut : {{ getStatus() }}</li>
-					<li class="list-group-item">Appareil : {{ applianceThree }} -- Statut : {{ getStatus() }}</li>
+					<app-appliance-item [appliance]="applianceOne" [status]="status"></app-appliance-item>
+					<app-appliance-item [appliance]="applianceTwo" [status]="status"></app-appliance-item>
+					<app-appliance-item [appliance]="applianceThree" [status]="status"></app-appliance-item>
 				</ul>
 				<button type="button" class="btn btn-success mt-2"
 						[disabled]='!isAuth'

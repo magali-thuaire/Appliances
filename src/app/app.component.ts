@@ -27,11 +27,6 @@ export class AppComponent {
 		4000);
 	}
 
-	// Fonction qui récupère le statut des appareils
-	getStatus() {
-		return this.status;
-	}
-
 	// Fonction qui modifie le statut des appareils sur 'allumé'
 	onTurningOn() {
 		this.status = 'allumé';
