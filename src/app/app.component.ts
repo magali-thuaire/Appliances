@@ -10,6 +10,9 @@ export class AppComponent {
 	// Authentification de l'utilisateur
 	isAuth = false;
 
+	// Date de mise à jour
+	lastUpdate = new Date();
+
 	// Tableau des appareils
 	appliances = [
 		{
