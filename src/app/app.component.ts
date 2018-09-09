@@ -10,8 +10,17 @@ export class AppComponent {
 	// Authentification de l'utilisateur
 	isAuth = false;
 
-	// Date de mise à jour
-	lastUpdate = new Date();
+	// Date de mise à jour par promesse après 2s
+	lastUpdate = new Promise(
+		(resolve, reject) => {
+			const date = new Date();
+			setTimeout(
+				() => {
+					resolve(date);
+				},
+			2000);
+		}
+	);
 
 	// Tableau des appareils
 	appliances = [

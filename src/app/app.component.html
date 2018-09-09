@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-12">
                 <h1>Mes appareils</h1>
-                <p class="text-muted">Mise à jour : {{ lastUpdate | date: 'dd/MM/yyyy, hh:mm a' }} </p>
+                <p class="text-muted">Mise à jour : {{ lastUpdate | async | date: 'dd/MM/yyyy, hh:mm a' }} </p>
 				<ul class="list-group">
 					<app-appliance-item *ngFor="let appliance of appliances" [appliance]="appliance.name" [status]="appliance.status"></app-appliance-item>
 				</ul>
