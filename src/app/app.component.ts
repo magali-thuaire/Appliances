@@ -32,4 +32,9 @@ export class AppComponent {
 		return this.status;
 	}
 
+	// Fonction qui modifie le statut des appareils sur 'allumé'
+	onTurningOn() {
+		this.status = 'allumé';
+	}
+
 }

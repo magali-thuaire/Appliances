@@ -8,7 +8,10 @@
 					<li class="list-group-item">Appareil : {{ applianceTwo }} -- Statut : {{ getStatus() }}</li>
 					<li class="list-group-item">Appareil : {{ applianceThree }} -- Statut : {{ getStatus() }}</li>
 				</ul>
-				<button type="button" class="btn btn-success mt-2" [disabled]='!isAuth'>Tout allumer</button>
+				<button type="button" class="btn btn-success mt-2"
+						[disabled]='!isAuth'
+						(click)="onTurningOn()">
+				Tout allumer</button>
 			</div>
 		</div>
 	</div>
