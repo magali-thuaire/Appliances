@@ -14,4 +14,15 @@ export class ApplianceItemComponent {
 	getStatus() {
 		return this.status;
 	}
+
+	// Fonction qui retourne une couleur en fonction du statut de l'appareil
+	getColor() {
+		// Si appareil allumé -> couleur verte
+		if (this.status === 'allumé') {
+			return 'green';
+		// Si appareil éteint -> couleur rouge
+		} else if (this.status === 'éteint') {
+			return 'red';
+		}
+	}
 }

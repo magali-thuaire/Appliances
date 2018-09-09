@@ -1,5 +1,5 @@
 <li class="list-group-item">
 	<div class="red" *ngIf="status === 'éteint'"></div>
-	<p>Appareil : {{ appliance }} -- Statut : {{ getStatus() }}</p>
+	<p [ngStyle]="{'color': getColor()}">Appareil : {{ appliance }} -- Statut : {{ getStatus() }}</p>
 	<input type="text" class="form-control" [(ngModel)]="appliance">
 </li>
