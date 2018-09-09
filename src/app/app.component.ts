@@ -11,4 +11,13 @@ export class AppComponent {
 	applianceOne = 'Machine à laver';
 	applianceTwo = 'Ordinateur';
 	applianceThree = 'Télévision';
+
+	// Statut des appareils
+	status = 'éteint';
+
+	// Fonction qui récupère le statut des appareils
+	getStatus() {
+		return this.status;
+	}
+
 }
