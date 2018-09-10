@@ -43,7 +43,12 @@ export class AppComponent implements OnInit {
 
 	// Fonction qui modifie le statut des appareils sur 'allumé'
 	onTurningOn() {
-		console.log('on allume tout');
+		this.applianceService.turningOnAll();
+	}
+
+	// Fonction qui modifie le statut des appareils sur 'éteint'
+	onTurningOff() {
+		this.applianceService.turningOffAll();
 	}
 
 }
