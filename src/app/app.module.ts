@@ -15,12 +15,13 @@ import { ApplianceService } from './services/appliance.service';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
 	{ path: 'auth', component: AuthComponent },
-	{ path: 'appareils', component: ApplianceListComponent },
-	{ path: 'appareils/:id', component: ApplianceSingleComponent },
-	{ path: '', component: ApplianceListComponent },
+	{ path: 'appareils', canActivate: [AuthGuard], component: ApplianceListComponent },
+	{ path: 'appareils/:id', canActivate: [AuthGuard], component: ApplianceSingleComponent },
+	{ path: '', canActivate: [AuthGuard], component: ApplianceListComponent },
 	{ path: 'not-found', component: FourOhFourComponent },
 	{ path: '**', redirectTo: 'not-found' }
 ];
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
 	],
 	providers: [
 		ApplianceService,
-		AuthService
+		AuthService,
+		AuthGuard
 	],
 	bootstrap: [
 		AppComponent
