@@ -12,13 +12,17 @@ import { ApplianceItemComponent } from './appliance-list/appliance-item/applianc
 import { ApplianceSingleComponent } from './appliance-list/appliance-single/appliance-single.component';
 import { ApplianceService } from './services/appliance.service';
 
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
 	{ path: 'auth', component: AuthComponent },
 	{ path: 'appareils', component: ApplianceListComponent },
 	{ path: 'appareils/:id', component: ApplianceSingleComponent },
-	{ path: '', component: ApplianceListComponent }
+	{ path: '', component: ApplianceListComponent },
+	{ path: 'not-found', component: FourOhFourComponent },
+	{ path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
@@ -27,7 +31,8 @@ const appRoutes: Routes = [
 		AuthComponent,
 		ApplianceListComponent,
 		ApplianceItemComponent,
-		ApplianceSingleComponent
+		ApplianceSingleComponent,
+		FourOhFourComponent
 	],
 	imports: [
 		BrowserModule,
@@ -42,4 +47,5 @@ const appRoutes: Routes = [
 		AppComponent
 	]
 })
+
 export class AppModule { }
