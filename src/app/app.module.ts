@@ -7,6 +7,13 @@ import { ApplianceItemComponent } from './appliance-list/appliance-item/applianc
 import { ApplianceService } from './services/appliance.service';
 import { ApplianceListComponent } from './appliance-list/appliance-list.component';
 import { AuthComponent } from './auth/auth.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+	{ path: 'appareils', component: ApplianceListComponent },
+	{ path: 'auth', component: AuthComponent },
+	{ path: '', component: ApplianceListComponent }
+];
 
 @NgModule({
 	declarations: [
@@ -17,7 +24,8 @@ import { AuthComponent } from './auth/auth.component';
 	],
 	imports: [
 		BrowserModule,
-		FormsModule
+		FormsModule,
+		RouterModule.forRoot(appRoutes)
 	],
 	providers: [
 		ApplianceService
