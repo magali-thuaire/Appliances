@@ -8,6 +8,7 @@ import { ApplianceService } from './services/appliance.service';
 import { ApplianceListComponent } from './appliance-list/appliance-list.component';
 import { AuthComponent } from './auth/auth.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from "./services/auth.service";
 
 const appRoutes: Routes = [
 	{ path: 'appareils', component: ApplianceListComponent },
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
 		RouterModule.forRoot(appRoutes)
 	],
 	providers: [
-		ApplianceService
+		ApplianceService,
+		AuthService
 	],
 	bootstrap: [
 		AppComponent
