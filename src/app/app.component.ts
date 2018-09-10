@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApplianceService } from './services/appliance.service';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 	// Authentification de l'utilisateur
 	isAuth = false;
@@ -23,28 +24,21 @@ export class AppComponent {
 	);
 
 	// Tableau des appareils
-	appliances = [
-		{
-			name: 'Machine à laver',
-			status: 'éteint'
-		},
-		{
-			name: 'Ordinateur',
-			status: 'allumé'
-		},
-		{
-			name: 'Télévision',
-			status: 'éteint'
-		}
-	];
+	appliances: any[];
 
-	constructor() {
+	// Injection du service ApplianceService
+	constructor(private applianceService: ApplianceService) {
 		// Fonction qui permet de simuler l'authentification de l'utilisateur après 4s
 		setTimeout(
 			() => {
 				this.isAuth = true;
 			},
 			4000);
+	}
+
+	ngOnInit() {
+		// Initialisation du tableau des appareils
+		this.appliances = this.applianceService.appliances;
 	}
 
 	// Fonction qui modifie le statut des appareils sur 'allumé'
