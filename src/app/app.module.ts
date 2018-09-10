@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ApplianceItemComponent } from './appliance-item/appliance-item.component';
+import { ApplianceItemComponent } from './appliance-list/appliance-item/appliance-item.component';
 import { ApplianceService } from './services/appliance.service';
+import { ApplianceListComponent } from './appliance-list/appliance-list.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		ApplianceItemComponent
+		ApplianceItemComponent,
+		ApplianceListComponent
 	],
 	imports: [
 		BrowserModule,

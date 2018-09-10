@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ApplianceService } from '../services/appliance.service';
+import { ApplianceService } from '../../services/appliance.service';
 
 @Component({
 	selector: 'app-appliance-item',
