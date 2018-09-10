@@ -5,7 +5,10 @@
                 <h1>Mes appareils</h1>
                 <p class="text-muted">Mise à jour : {{ lastUpdate | async | date: 'dd/MM/yyyy, hh:mm a' }} </p>
 				<ul class="list-group">
-					<app-appliance-item *ngFor="let appliance of appliances" [appliance]="appliance.name" [status]="appliance.status"></app-appliance-item>
+					<app-appliance-item *ngFor="let appliance of appliances; let i=index"
+										[indexOfAppliance]="i"
+										[appliance]="appliance.name"
+										[status]="appliance.status"></app-appliance-item>
 				</ul>
 				<button type="button" class="btn btn-success mt-2"
 						[disabled]='!isAuth'

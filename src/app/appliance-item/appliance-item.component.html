@@ -2,7 +2,7 @@
 	'list-group-item': true,
 	'list-group-item-success': status === 'allumé',
 	'list-group-item-danger': status === 'éteint'}">
-	<div class="red" *ngIf="status === 'éteint'"></div>
 	<p [ngStyle]="{'color': getColor()}">Appareil : {{ appliance }} -- Statut : {{ getStatus() }}</p>
-	<input type="text" class="form-control" [(ngModel)]="appliance">
+	<button class="btn btn-success btn-sm text-white" (click)="onTurningOn()" [disabled]="status === 'allumé'">Allumer</button>
+	<button class="btn btn-danger btn-sm text-white ml-1" (click)="onTurningOff()" [disabled]="status === 'éteint'">Eteindre</button>
 </li>

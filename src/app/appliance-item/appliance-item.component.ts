@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ApplianceService } from '../services/appliance.service';
 
 @Component({
 	selector: 'app-appliance-item',
@@ -7,8 +8,12 @@ import { Component, Input } from '@angular/core';
 })
 export class ApplianceItemComponent {
 
+	// Injection du service ApplianceService
+	constructor(private applianceService: ApplianceService) {}
+
 	@Input() appliance: string;
 	@Input() status: string;
+	@Input() indexOfAppliance: number;
 
 	// Fonction qui récupère le statut des appareils
 	getStatus() {
@@ -20,9 +25,19 @@ export class ApplianceItemComponent {
 		// Si appareil allumé -> couleur verte
 		if (this.status === 'allumé') {
 			return 'green';
-		// Si appareil éteint -> couleur rouge
+			// Si appareil éteint -> couleur rouge
 		} else if (this.status === 'éteint') {
 			return 'red';
 		}
+	}
+
+	// Fonction qui modifie le statut d'un appareil sur 'allumé'
+	onTurningOn() {
+		this.applianceService.turningOnOne(this.indexOfAppliance);
+	}
+
+	// Fonction qui modifie le statut d'un appareil sur 'éteint'
+	onTurningOff() {
+		this.applianceService.turningOffOne(this.indexOfAppliance);
 	}
 }
