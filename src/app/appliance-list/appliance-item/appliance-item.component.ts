@@ -14,6 +14,7 @@ export class ApplianceItemComponent {
 	@Input() appliance: string;
 	@Input() status: string;
 	@Input() indexOfAppliance: number;
+	@Input() id: number;
 
 	// Fonction qui récupère le statut des appareils
 	getStatus() {
