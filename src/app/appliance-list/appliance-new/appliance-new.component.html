@@ -1,0 +1,15 @@
+<h2>Nouvel appareil</h2>
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+	<div class="form-group">
+		<label for="name">Appareil</label>
+		<input id="name" type="text" class="form-control" placeholder="nom de l'appareil" name="name" ngModel>
+	</div>
+	<div class="form-group">
+		<label for="status">Statut</label>
+		<select id="status" class="form-control" name="status" ngModel>
+			<option value="allumé" default>Allumé</option>
+			<option value="éteint">Eteint</option>
+		</select>
+	</div>
+	<button class="btn btn-primary" type="submit">Enregistrer</button>
+</form>
