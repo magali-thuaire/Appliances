@@ -1,9 +1,14 @@
+import { Subject } from 'rxjs';
+
 export class ApplianceService {
 
 	constructor() { }
 
-	// Tableau des appareils
-	appliances = [
+	// Subject permet d'accéder au tableau des appareils
+	applianceSubject = new Subject<any[]>();
+
+	// Tableau des appareils (non accessible depuis l'extérieur la classe)
+	private appliances = [
 		{
 			id: 1,
 			name: 'Machine à laver',
@@ -35,6 +40,7 @@ export class ApplianceService {
 	turningOnAll() {
 		for (const appliance of this.appliances) {
 			appliance.status = 'allumé';
+			this.emitApplianceSubject();
 		}
 	}
 
@@ -42,16 +48,24 @@ export class ApplianceService {
 	turningOffAll() {
 		for (const appliance of this.appliances) {
 			appliance.status = 'éteint';
+			this.emitApplianceSubject();
 		}
 	}
 	// Fonction qui modifie le statut d'un appareil sur 'allumé'
 	turningOnOne(index: number) {
 		this.appliances[index].status = 'allumé';
+		this.emitApplianceSubject();
 	}
 
 	// Fonction qui modifie le statut d'un appareil sur 'éteint'
 	turningOffOne(index: number) {
 		this.appliances[index].status = 'éteint';
+		this.emitApplianceSubject();
+	}
+
+	// Fonction qui permet d'accéder au tableau des appareils depuis l'extérieur de la classe
+	emitApplianceSubject() {
+		this.applianceSubject.next(this.appliances.slice());
 	}
 
 }
