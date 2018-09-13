@@ -1,0 +1,14 @@
+<h2>Utilisateurs</h2>
+<button routerLink="/new-user" class="btn btn-default mb-4">Nouvel utilisateur</button>
+<ul class="list-group">
+	<li class="list-group-item" *ngFor="let user of users">
+		<h4>{{ user.firstName }} {{ user.lastName }}</h4>
+		<p>{{ user.email }}</p>
+		<p *ngIf="user.hobbies && user.hobbies.length > 0">
+			Hobbies :
+			<span *ngFor="let hobby of user.hobbies">
+				{{ hobby }},
+			</span>
+		</p>
+	</li>
+</ul>
