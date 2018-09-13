@@ -8,6 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class ApplianceNewComponent {
 
+	// Statut par défaut du nouvel appareil dans le formulaire
+	defaultStatus = 'éteint';
+
 	constructor() { }
 
 	// Fonction qui soumet le formulaire
