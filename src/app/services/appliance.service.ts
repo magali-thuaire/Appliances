@@ -68,4 +68,21 @@ export class ApplianceService {
 		this.applianceSubject.next(this.appliances.slice());
 	}
 
+	// Fonction qui permet d'ajouter un nouvel appareil
+	addAppliance(name: string, status: string) {
+		// Création d'un object appareil vide
+		const applianceObject = {
+			id: 0,
+			name:  '',
+			status:  ''
+		};
+		// Attribution des données du nouvel appareil créé
+		applianceObject.name = name;
+		applianceObject.status = status;
+		applianceObject.id = this.appliances[this.appliances.length - 1].id - 1;
+		// Ajout du nouvel appareil dans le tableau des appareils
+		this.appliances.push(applianceObject);
+		this.emitApplianceSubject();
+	}
+
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ApplianceService } from '../../services/appliance.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-appliance-new',
@@ -11,10 +13,13 @@ export class ApplianceNewComponent {
 	// Statut par défaut du nouvel appareil dans le formulaire
 	defaultStatus = 'éteint';
 
-	constructor() { }
+	constructor(private applianceService: ApplianceService, private router: Router) { }
 
 	// Fonction qui soumet le formulaire
 	onSubmit(form: NgForm) {
-		console.log(form.value);
+		const name = form.value['name'];
+		const status = form.value['status'];
+		this.applianceService.addAppliance(name, status);
+		this.router.navigate(['appareils']);
 	}
 }
