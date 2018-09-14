@@ -71,4 +71,9 @@ export class ApplianceListComponent implements OnInit, OnDestroy {
 		this.applianceService.saveAppliancesToServer();
 	}
 
+	// Fonction qui récupère la liste des appareils sur le serveur
+	onFetch() {
+		this.applianceService.getAppliancesToServer();
+	}
+
 }

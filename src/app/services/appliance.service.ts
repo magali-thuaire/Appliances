@@ -102,8 +102,22 @@ export class ApplianceService {
 				(error)=> {
 					console.log('Erreur d\'enregistrement' + error);
 				}
-			)
-		;
+			);
+	}
+
+	// Fonction qui récupère la liste des appareils sur le serveur
+	getAppliancesToServer() {
+		this.httpClient
+			.get<any[]>('https://appliances-526e9.firebaseio.com/appliances.json')
+			.subscribe(
+				(response) => {
+					this.appliances = response;
+					this.emitApplianceSubject();
+				},
+				(error)=> {
+					console.log('Erreur de chargement' + error);
+				}
+			);
 	}
 
 }
