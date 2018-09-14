@@ -1,8 +1,10 @@
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+
+@Injectable()
 
 export class ApplianceService {
-
-	constructor() { }
 
 	// Subject permet d'accéder au tableau des appareils
 	applianceSubject = new Subject<any[]>();
@@ -25,6 +27,10 @@ export class ApplianceService {
 			status: 'éteint'
 		}
 	];
+
+	constructor(private httpClient: HttpClient) {
+
+	}
 
 	// Fonction qui retourne un appareil via son id
 	getApplianceById(id: number) {
@@ -83,6 +89,21 @@ export class ApplianceService {
 		// Ajout du nouvel appareil dans le tableau des appareils
 		this.appliances.push(applianceObject);
 		this.emitApplianceSubject();
+	}
+
+	// Fonction qui enregistre la liste des appareils sur le serveur
+	saveAppliancesToServer() {
+		this.httpClient
+			.put('https://appliances-526e9.firebaseio.com/appliances.json', this.appliances)
+			.subscribe(
+				() => {
+					console.log('Enregistrement terminé');
+				},
+				(error)=> {
+					console.log('Erreur d\'enregistrement' + error);
+				}
+			)
+		;
 	}
 
 }
